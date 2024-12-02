@@ -34,24 +34,23 @@ const Register = ({ onRegister }) => {
     }
 
     setMessage("Registration Successful! Please Login.");
-    setTimeout(() => onRegister(), 1500);
+    setTimeout(onRegister, 1500);
   };
 
   return (
     <div className="container">
-      <img src="/logo.png" alt="SocialHub Logo" className="logo" />
-      <h1>Register on SocialHub</h1>
+      <h2>Create an Account</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Login ID"
+          placeholder="Create your Login ID"
           value={loginID}
           onChange={(e) => setLoginID(e.target.value)}
           required
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Create your Password"
           value={password}
           onChange={handlePasswordChange}
           required

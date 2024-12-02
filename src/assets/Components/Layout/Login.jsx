@@ -12,7 +12,7 @@ const Login = ({ onLogin }) => {
 
     if (loginID === storedID && password === storedPassword) {
       setMessage("Login Successful!");
-      onLogin();
+      setTimeout(onLogin, 1000);
     } else {
       setMessage("Invalid Login ID or Password.");
     }
@@ -20,19 +20,18 @@ const Login = ({ onLogin }) => {
 
   return (
     <div className="container">
-      <img src="/logo.png" alt="SocialHub Logo" className="logo" />
-      <h1>Login to SocialHub</h1>
+      <h2>Welcome Back!</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Login ID"
+          placeholder="Enter your Login ID"
           value={loginID}
           onChange={(e) => setLoginID(e.target.value)}
           required
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Enter your Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required

@@ -5,11 +5,15 @@ const Home = ({ onLogout }) => {
 
   return (
     <div className="container">
-      <img src="/logo.png" alt="SocialHub Logo" className="logo" />
-      <h1>Welcome to SocialHub!</h1>
+      <h2>Welcome to SocialHub!</h2>
       {profilePicture && (
-        <img src={profilePicture} alt="Profile" className="profile-picture" />
+        <img
+          src={profilePicture}
+          alt="Profile"
+          className="profile-picture"
+        />
       )}
+      <p>Explore the platform and connect with your friends!</p>
       <button onClick={onLogout}>Log Out</button>
     </div>
   );
