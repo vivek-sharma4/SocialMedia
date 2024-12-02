@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const FriendRequests = () => {
   const [friends, setFriends] = useState([]);
-  const [requests, setRequests] = useState(["JohnDoe", "JaneDoe", "Alice"]);
+  const [requests, setRequests] = useState(["Sravya", "Rohit", "Vivek"]);
 
   const acceptRequest = (name) => {
     setFriends([...friends, name]);

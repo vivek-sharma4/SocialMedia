@@ -1,44 +1,38 @@
 import React, { useState } from "react";
 
-const Login = ({ onLogin }) => {
-  const [loginID, setLoginID] = useState("");
+const Login = ({ onLogin, users }) => {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const storedID = localStorage.getItem("loginID");
-    const storedPassword = localStorage.getItem("password");
+  const handleLogin = () => {
+    const userExists = users.find(
+      (user) => user.username === username && user.password === password
+    );
 
-    if (loginID === storedID && password === storedPassword) {
-      setMessage("Login Successful!");
-      setTimeout(onLogin, 1000);
+    if (userExists) {
+      alert("Login successful!");
+      onLogin();
     } else {
-      setMessage("Invalid Login ID or Password.");
+      alert("Invalid username or password.");
     }
   };
 
   return (
     <div className="container">
-      <h2>Welcome Back!</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter your Login ID"
-          value={loginID}
-          onChange={(e) => setLoginID(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Enter your Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      {message && <p className="message">{message}</p>}
+      <h2>Login</h2>
+      <input
+        type="text"
+        placeholder="Enter username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Enter password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 };
