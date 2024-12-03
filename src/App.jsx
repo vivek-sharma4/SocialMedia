@@ -28,7 +28,6 @@ function App() {
       <button onClick={() => setPage("register")}>Register Here</button>
     </div>
     )}
-
       {page === "register" && (
         <>
           <Register onRegister={handleRegister} />
